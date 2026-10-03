@@ -84,14 +84,14 @@ export function ProductCard({ product }: { product: ProductWithQuota }) {
               {habis ? "Habis" : "Tidak tersedia"}
             </Button>
           ) : qty > 0 ? (
-            <div className="flex items-center justify-between gap-2">
+            <div className="flex flex-wrap items-center justify-between gap-1 sm:gap-2">
               <QtyStepper
                 qty={qty}
                 min={0}
                 max={sisa ?? 99}
                 onChange={(v) => ubahQty(product.id, v)}
               />
-              <span className="text-xs font-medium text-muted-foreground">
+              <span className="text-[11px] font-medium text-muted-foreground whitespace-nowrap">
                 di keranjang
               </span>
             </div>

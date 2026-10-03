@@ -30,31 +30,34 @@ export function Header() {
           </span>
         </Link>
 
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <Button
             asChild
             variant="outline"
             size="sm"
-            className="h-10 rounded-xl border-2 border-primary/20 bg-primary/5 px-3 font-bold text-primary hover:bg-primary/10 hover:text-primary sm:px-4"
+            className="h-10 rounded-xl border-2 border-primary/20 bg-primary/5 px-2.5 font-bold text-primary hover:bg-primary/10 hover:text-primary sm:px-4"
           >
-            <Link href="/lacak" aria-label="Lacak pesanan">
-              <Search className="h-4 w-4" />
-              <span className="ml-1.5 text-xs sm:text-sm">Lacak Pesanan</span>
+            <Link href="/lacak" aria-label="Lacak pesanan" className="flex items-center gap-1.5 whitespace-nowrap">
+              <Search className="h-4 w-4 shrink-0" />
+              <span className="text-xs sm:text-sm">
+                <span className="inline sm:hidden">Lacak</span>
+                <span className="hidden sm:inline">Lacak Pesanan</span>
+              </span>
             </Link>
           </Button>
 
           <Button
             asChild
             size="sm"
-            className="relative h-10 rounded-xl px-3 font-bold shadow-sm sm:px-4"
+            className="relative h-10 shrink-0 rounded-xl px-2.5 font-bold shadow-sm sm:px-4"
           >
-            <Link href="/keranjang" aria-label="Keranjang">
-              <ShoppingBasket className="h-4 w-4" />
-              <span className="ml-1.5 hidden text-[13px] sm:inline">
+            <Link href="/keranjang" aria-label="Keranjang" className="flex items-center gap-1.5 whitespace-nowrap">
+              <ShoppingBasket className="h-4 w-4 shrink-0" />
+              <span className="text-xs sm:text-[13px]">
                 Keranjang
               </span>
               {count > 0 && (
-                <span className="ml-1.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-foreground px-1 text-[10px] font-bold leading-none text-background">
+                <span className="flex h-5 min-w-5 shrink-0 items-center justify-center rounded-full bg-foreground px-1 text-[10px] font-bold leading-none text-background">
                   {jumlah}
                 </span>
               )}
