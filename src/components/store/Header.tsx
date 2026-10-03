@@ -37,12 +37,9 @@ export function Header() {
             size="sm"
             className="h-10 rounded-xl border-2 border-primary/20 bg-primary/5 px-2.5 font-bold text-primary hover:bg-primary/10 hover:text-primary sm:px-4"
           >
-            <Link href="/lacak" aria-label="Lacak pesanan" className="flex items-center gap-1.5 whitespace-nowrap">
+            <Link href="/lacak" aria-label="Lacak pesanan" className="flex items-center gap-1.5">
               <Search className="h-4 w-4 shrink-0" />
-              <span className="text-xs sm:text-sm">
-                <span className="inline sm:hidden">Lacak</span>
-                <span className="hidden sm:inline">Lacak Pesanan</span>
-              </span>
+              <span className="hidden text-xs sm:inline sm:text-sm">Lacak Pesanan</span>
             </Link>
           </Button>
 
@@ -51,9 +48,9 @@ export function Header() {
             size="sm"
             className="relative h-10 shrink-0 rounded-xl px-2.5 font-bold shadow-sm sm:px-4"
           >
-            <Link href="/keranjang" aria-label="Keranjang" className="flex items-center gap-1.5 whitespace-nowrap">
+            <Link href="/keranjang" aria-label="Keranjang" className="flex items-center gap-1.5">
               <ShoppingBasket className="h-4 w-4 shrink-0" />
-              <span className="text-xs sm:text-[13px]">
+              <span className="hidden text-xs sm:inline sm:text-[13px]">
                 Keranjang
               </span>
               {count > 0 && (
