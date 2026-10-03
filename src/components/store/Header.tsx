@@ -5,9 +5,8 @@ import { ShoppingBasket, Search, CakeSlice } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";
 import { useStore } from "@/context/StoreContext";
-import { StatusBadge } from "./StatusBadge";
 
-/** Kepala halaman: logo (diam) + nama toko, status, lacak & keranjang */
+/** Kepala halaman: logo (diam) + nama toko, lacak pesanan & keranjang */
 export function Header() {
   const { count } = useCart();
   const { settings } = useStore();
@@ -31,18 +30,16 @@ export function Header() {
           </span>
         </Link>
 
-        <div className="flex shrink-0 items-center gap-1.5">
-          <StatusBadge className="hidden md:inline-flex" />
-
+        <div className="flex shrink-0 items-center gap-2">
           <Button
             asChild
-            variant="ghost"
+            variant="outline"
             size="sm"
-            className="h-10 rounded-xl px-2.5 sm:px-3"
+            className="h-10 rounded-xl border-2 border-primary/20 bg-primary/5 px-3 font-bold text-primary hover:bg-primary/10 hover:text-primary sm:px-4"
           >
             <Link href="/lacak" aria-label="Lacak pesanan">
               <Search className="h-4 w-4" />
-              <span className="ml-1.5 hidden sm:inline">Lacak</span>
+              <span className="ml-1.5 text-xs sm:text-sm">Lacak Pesanan</span>
             </Link>
           </Button>
 
