@@ -1,106 +1,64 @@
 "use client";
 
-import { useRef } from "react";
 import Link from "next/link";
-import {
-  ShoppingBasket,
-  Search,
-  CakeSlice,
-  Menu,
-} from "lucide-react";
+import { ShoppingBasket, Search, CakeSlice } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";
 import { useStore } from "@/context/StoreContext";
 import { StatusBadge } from "./StatusBadge";
 
-/** Kepala halaman: nama toko + status + tombol lacak & keranjang */
+/** Kepala halaman: logo (diam) + nama toko, status, lacak & keranjang */
 export function Header() {
   const { count } = useCart();
   const { settings } = useStore();
-  const navRef = useRef<HTMLDivElement>(null);
+  const jumlah = count > 99 ? "99+" : count;
 
   return (
-    <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b border-border/30">
-      <div className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between gap-2 px-4">
-        {/* Logo / nama toko */}
-        <Link href="/" className="flex min-w-0 items-center gap-2.5 group">
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-sm transition-transform group-hover:scale-110 group-hover:rotate-[-8deg] animate-float">
+    <header className="sticky top-0 z-40 border-b border-border/40 bg-background/85 backdrop-blur-lg">
+      <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between gap-3 px-4">
+        {/* Logo statis — tanpa animasi */}
+        <Link href="/" className="flex min-w-0 items-center gap-2.5">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-sm">
             <CakeSlice className="h-5 w-5" strokeWidth={2.5} />
           </span>
           <span className="min-w-0">
-            <span className="block truncate text-sm font-extrabold leading-tight tracking-tight">
+            <span className="block truncate text-sm font-extrabold leading-tight tracking-tight sm:text-base">
               {settings?.store_name ?? "Toko Kue Ibu"}
             </span>
-            <span className="block text-[11px] leading-tight text-muted-foreground">
+            <span className="block truncate text-[11px] leading-tight text-muted-foreground">
               Kue rumahan · pre-order
             </span>
           </span>
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-1.5">
-          <StatusBadge />
+        <div className="flex shrink-0 items-center gap-1.5">
+          <StatusBadge className="hidden md:inline-flex" />
+
           <Button
             asChild
             variant="ghost"
             size="sm"
-            className="rounded-xl px-3"
+            className="h-10 rounded-xl px-2.5 sm:px-3"
           >
-            <Link href="/lacak">
+            <Link href="/lacak" aria-label="Lacak pesanan">
               <Search className="h-4 w-4" />
-              <span className="ml-1.5">Lacak</span>
+              <span className="ml-1.5 hidden sm:inline">Lacak</span>
             </Link>
           </Button>
 
           <Button
             asChild
             size="sm"
-            className="relative rounded-xl pl-3 pr-4 gap-1.5 font-bold shadow-sm"
+            className="relative h-10 rounded-xl px-3 font-bold shadow-sm sm:px-4"
           >
-            <Link href="/keranjang">
+            <Link href="/keranjang" aria-label="Keranjang">
               <ShoppingBasket className="h-4 w-4" />
-              <span className="text-[13px]">Keranjang</span>
+              <span className="ml-1.5 hidden text-[13px] sm:inline">
+                Keranjang
+              </span>
               {count > 0 && (
-                <span className="flex h-5 min-w-5 items-center justify-center rounded-xl bg-foreground px-1 text-[10px] font-bold text-background leading-none">
-                  {count > 99 ? "99+" : count}
-                </span>
-              )}
-            </Link>
-          </Button>
-        </div>
-
-        {/* Mobile menu toggle */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden rounded-xl h-9 w-9"
-          onClick={() => navRef.current?.classList.toggle("hidden")}
-          aria-label="Menu navigasi"
-        >
-          <Menu className="h-5 w-5" />
-        </Button>
-      </div>
-
-      {/* Mobile dropdown */}
-      <div
-        ref={navRef}
-        className="hidden md:hidden border-t border-border/30 bg-background/95 backdrop-blur-lg px-4 pb-4 pt-3"
-      >
-        <div className="flex flex-col gap-2">
-          <StatusBadge />
-          <Button asChild variant="ghost" size="sm" className="justify-start rounded-xl">
-            <Link href="/lacak">
-              <Search className="h-4 w-4" />
-              <span className="ml-1.5">Lacak Pesanan</span>
-            </Link>
-          </Button>
-          <Button asChild size="sm" className="rounded-xl font-bold shadow-sm justify-start">
-            <Link href="/keranjang">
-              <ShoppingBasket className="h-4 w-4" />
-              <span className="ml-1.5">Keranjang</span>
-              {count > 0 && (
-                <span className="ml-auto flex h-5 min-w-5 items-center justify-center rounded-xl bg-foreground px-1 text-[10px] font-bold text-background leading-none">
-                  {count > 99 ? "99+" : count}
+                <span className="ml-1.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-foreground px-1 text-[10px] font-bold leading-none text-background">
+                  {jumlah}
                 </span>
               )}
             </Link>
