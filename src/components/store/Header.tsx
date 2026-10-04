@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { ShoppingBasket, Search, CakeSlice } from "lucide-react";
+import { ShoppingBasket, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";
 import { useStore } from "@/context/StoreContext";
@@ -17,9 +18,14 @@ export function Header() {
       <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between gap-3 px-4">
         {/* Logo statis — tanpa animasi */}
         <Link href="/" className="flex min-w-0 items-center gap-2.5">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-sm">
-            <CakeSlice className="h-5 w-5" strokeWidth={2.5} />
-          </span>
+          <Image
+            src="/logo.svg"
+            alt="Abyan Kuliner"
+            width={40}
+            height={40}
+            priority
+            className="h-10 w-10 shrink-0 rounded-2xl bg-white object-contain shadow-sm ring-1 ring-border/50"
+          />
           <span className="min-w-0">
             <span className="block truncate text-sm font-extrabold leading-tight tracking-tight sm:text-base">
               {settings?.store_name ?? "Toko Kue Ibu"}
