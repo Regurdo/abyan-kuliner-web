@@ -24,7 +24,7 @@ const LANGKAH = [
     Icon: MapPin,
     warna: "bg-peach",
     judul: "Checkout & Pin Lokasi",
-    isi: "Isi nama dan alamat, tempel pin di peta biar ibu gampang nyari rumahmu.",
+    isi: "Isi nama dan alamat, tempel pin di peta biar kami gampang nyari rumahmu.",
   },
   {
     no: 3,
@@ -63,8 +63,7 @@ export default function HalamanUtama() {
             {settings?.store_name ?? "Toko Kue Ibu"}
           </h1>
           <p className="mt-3 text-sm leading-relaxed text-foreground/75 sm:text-base">
-            Dibuat fresh saat ada yang pesan, diantar langsung oleh ibu ke
-            rumahmu. Pilih kue favoritmu, tempel pin lokasimu, selesai!
+            Dibuat fresh saat ada yang pesan. Pilih kue favoritmu, tempel pin lokasimu, selesai!
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" className="h-12 gap-2 rounded-2xl px-6 text-sm font-extrabold shadow-lg shadow-primary/25">
@@ -138,7 +137,7 @@ export default function HalamanUtama() {
               {batch
                 ? buka
                   ? "Batch aktif — pesan sebelum batas waktu ya!"
-                  : "Katalog tetap bisa dilihat, checkout dibuka saat ibu buka pemesanan."
+                  : "Katalog tetap bisa dilihat, checkout dibuka saat Kami buka pemesanan."
                 : "Belum ada batch pemesanan aktif saat ini."}
             </p>
           </div>
