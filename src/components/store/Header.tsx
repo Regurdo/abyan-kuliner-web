@@ -24,7 +24,7 @@ export function Header() {
             width={40}
             height={40}
             priority
-            className="h-10 w-10 shrink-0 rounded-2xl bg-white object-contain shadow-sm ring-1 ring-border/50"
+            className="h-10 w-10 shrink-0 rounded-full bg-transparent object-contain"
           />
           <span className="min-w-0">
             <span className="block truncate text-sm font-extrabold leading-tight tracking-tight sm:text-base">
