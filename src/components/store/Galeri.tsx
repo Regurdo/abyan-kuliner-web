@@ -14,7 +14,7 @@ export function Galeri({ products }: { products: ProductWithQuota[] }) {
           Galeri
         </span>
         <h2 className="mt-2 text-2xl font-extrabold tracking-tight">
-          Intip Kue-kue Ibu
+          Intip Kue-kue Kami
         </h2>
       </div>
 
