@@ -63,7 +63,7 @@ export function Footer() {
 
         <p className="mt-8 border-t border-border/40 pt-4 text-center text-xs text-muted-foreground">
           &copy; {new Date().getFullYear()} {settings?.store_name ?? "Toko Kue Ibu"} —
-          Dibuat dengan <Heart className="inline h-3 w-3 text-primary fill-primary" /> untuk pembeli tersayang
+          Dibuat dengan <Heart className="inline h-3 w-3 text-primary fill-primary" />
         </p>
       </div>
     </footer>
